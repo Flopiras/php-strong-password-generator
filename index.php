@@ -1,4 +1,7 @@
 <?php
+// array di carattery disponibili per creare una password
+$characters = ['abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'];
+
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +17,7 @@
 
 <body>
     <div class="container my-4">
+        <!-- form -->
         <form action="index.php">
             <div class="mb-3 d-flex ">
                 <label for="length" class="form-label">Quanto deve essere lunga la tua password?</label>
