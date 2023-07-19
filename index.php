@@ -1,34 +1,11 @@
 <?php
+include __DIR__ . './functions/functions.php';
+
 // array di carattery disponibili per creare una password
 $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 
 // recupero la lunghezza dal form
 $password_length = $_GET['length'] ?? NULL;
-
-// funzione per generare password
-function randomPassword($length, $characters)
-{
-    // preparo un array per la password
-    $password = [];
-
-    // creo un ciclo che metta tanti caratteri quanti scelti dall'utente
-    for ($i = 0; count($password) < $length; $i++) {
-
-        // mescolo i caratteri all'interno della stringa
-        $shuffled_characters = str_shuffle($characters);
-
-        // trasformo la stringa mescolata in un array
-        $shuffled_characters = str_split($shuffled_characters);
-
-        // se il primo elemento dell'array mescolato non è presente nell'array password lo aggiungo
-        if (!in_array($shuffled_characters[0], $password)) $password[] = $shuffled_characters[0];
-    }
-
-    // trasformo l'array in stringa
-    $password = implode($password);
-
-    return $password;
-};
 
 // var_dump(randomPassword(5, $characters))
 
