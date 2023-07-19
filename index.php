@@ -3,7 +3,7 @@
 $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 
 // recupero la lunghezza dal form
-$password_length = $_GET['length'];
+$password_length = $_GET['length'] ?? NULL;
 
 // funzione per generare password
 function randomPassword($length, $characters)
@@ -12,8 +12,8 @@ function randomPassword($length, $characters)
     $password = [];
 
     // creo un ciclo che metta tanti caratteri quanti scelti dall'utente
-    for ($i = 0; $i < $length; $i++) {
-        # code...
+    for ($i = 0; count($password) < $length; $i++) {
+
         // mescolo i caratteri all'interno della stringa
         $shuffled_characters = str_shuffle($characters);
 
@@ -21,15 +21,16 @@ function randomPassword($length, $characters)
         $shuffled_characters = str_split($shuffled_characters);
 
         // se il primo elemento dell'array mescolato non è presente nell'array password lo aggiungo
-        if (in_array($shuffled_characters[0], $password)) $password[] =  $shuffled_characters[0];
+        if (!in_array($shuffled_characters[0], $password)) $password[] = $shuffled_characters[0];
     }
 
     // trasformo l'array in stringa
     $password = implode($password);
 
     return $password;
-}
+};
 
+// var_dump(randomPassword(5, $characters))
 
 // var_dump($characters)
 
@@ -63,7 +64,7 @@ function randomPassword($length, $characters)
             <!-- password -->
             <div>
                 <h4>Complimenti!</h4>
-                <p>La tua password è <strong><?php randomPassword($password_length, $characters) ?> </strong></p>
+                <p>La tua password è <strong><?php echo $password = randomPassword($_GET['length'], $characters) ?> </strong></p>
             </div>
         <?php endif ?>
 
