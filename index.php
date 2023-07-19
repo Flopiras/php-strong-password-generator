@@ -2,9 +2,17 @@
 // array di carattery disponibili per creare una password
 $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 
-$characters = str_split($characters);
+// funzione per generare password
+function randomPassword($length, $characters)
+{
+    // mescolo i caratteri all'interno della stringa
+    $shuffled_characters = str_shuffle($characters);
 
-var_dump($characters)
+    // trasformo la stringa mescolata in un array
+    $shuffled_characters = str_split($shuffled_characters);
+}
+
+// var_dump($characters)
 
 ?>
 
