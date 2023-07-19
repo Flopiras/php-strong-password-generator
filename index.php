@@ -1,11 +1,26 @@
 <?php
 include __DIR__ . './functions/functions.php';
 
-// array di carattery disponibili per creare una password
-$characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 
 // recupero la lunghezza dal form
 $password_length = $_GET['length'] ?? NULL;
+
+// se il form è stato inviato
+if ($password_length) {
+
+    // chiamo la funzione per generare la password
+    $password = randomPassword($password_length);
+
+    //sessione aperta
+
+    session_start();
+
+    // salvo la password nella sessione
+    $_SESSION['password'] = $password;
+
+    //  reindirizzo alla pagina per la password
+    header('Location: password.php');
+}
 
 // var_dump(randomPassword(5, $characters))
 
@@ -39,10 +54,7 @@ $password_length = $_GET['length'] ?? NULL;
 
         <?php if ($password_length) : ?>
             <!-- password -->
-            <div>
-                <h4>Complimenti!</h4>
-                <p>La tua password è <strong><?php echo $password = randomPassword($_GET['length'], $characters) ?> </strong></p>
-            </div>
+
         <?php endif ?>
 
     </div>

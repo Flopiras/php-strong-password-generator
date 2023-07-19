@@ -1,8 +1,11 @@
 <?php
 
 // funzione per generare password
-function randomPassword($length, $characters)
+function randomPassword($length)
 {
+    // array di carattery disponibili per creare una password
+    $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+
     // preparo un array per la password
     $password = [];
 
