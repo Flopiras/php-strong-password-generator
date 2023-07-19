@@ -58,6 +58,15 @@ function randomPassword($length, $characters)
             <button type="submit" class="btn btn-primary">Genera password</button>
 
         </form>
+
+        <?php if ($password_length) : ?>
+            <!-- password -->
+            <div>
+                <h4>Complimenti!</h4>
+                <p>La tua password è <strong><?php randomPassword($password_length, $characters) ?> </strong></p>
+            </div>
+        <?php endif ?>
+
     </div>
 </body>
 
