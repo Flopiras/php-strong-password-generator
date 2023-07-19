@@ -16,6 +16,9 @@ function randomPassword($length, $characters)
 
     // preparo un array per la password
     $password = [];
+
+    // se il primo elemento dell'array mescolato non è presente nell'array password lo aggiungo
+    if (in_array($shuffled_characters[0], $password)) $password[] =  $shuffled_characters[0];
 }
 
 // var_dump($characters)
