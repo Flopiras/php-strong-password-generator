@@ -10,6 +10,9 @@ function randomPassword($length, $characters)
 
     // trasformo la stringa mescolata in un array
     $shuffled_characters = str_split($shuffled_characters);
+
+    // preparo un array per la password
+    $password = [];
 }
 
 // var_dump($characters)
