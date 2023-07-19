@@ -2,6 +2,9 @@
 // array di carattery disponibili per creare una password
 $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 
+// recupero la lunghezza dal form
+$length = $_GET['length'];
+
 // funzione per generare password
 function randomPassword($length, $characters)
 {
