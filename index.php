@@ -1,6 +1,10 @@
 <?php
 // array di carattery disponibili per creare una password
-$characters = ['abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'];
+$characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+
+$characters = str_split($characters);
+
+var_dump($characters)
 
 ?>
 
